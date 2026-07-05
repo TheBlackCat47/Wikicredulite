@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sys Admin (Secteur Yéti Serein — Ambassadeur Des Marmottes Impertinentes Nationales) : article humoristique de Wikicrédulité, l'encyclopedie librement invérifiée, sur une fonction officieuse de diplomatie technique imaginaire.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Sys Admin - Wikicrédulité">
+  <meta property="og:description" content="Secteur Yéti Serein — Ambassadeur Des Marmottes Impertinentes Nationales : article humoristique.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <title>Sys Admin - Wikicrédulité</title>
+  <style>
+    :root {
+      --border: #a2a9b1;
+      --border-light: #c8ccd1;
+      --text: #202122;
+      --muted: #54595d;
+      --link: #0645ad;
+      --visited: #0b0080;
+      --page: #ffffff;
+      --chrome: #f8f9fa;
+      --heading: "Linux Libertine", "Georgia", "Times New Roman", serif;
+      --body: sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page);
+      font-family: var(--body);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a.new {
+      color: #ba0000;
+    }
+
+    a.new:visited {
+      color: #a55858;
+    }
+
+    sup.ref {
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    sup.ref a {
+      padding: 0 1px;
+    }
+
+    .backlink {
+      text-decoration: none;
+    }
+
+    .site-shell {
+      display: grid;
+      grid-template-columns: 176px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      border-right: 1px solid var(--border-light);
+      background: linear-gradient(180deg, #ffffff 0, var(--chrome) 76px);
+      padding: 12px 16px 24px;
+    }
+
+    .brand {
+      display: block;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 144px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .side-section {
+      margin: 0 0 18px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .side-section h2 {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    .side-section ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .main {
+      min-width: 0;
+      background: #fff;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 8px 24px 0;
+      border-bottom: 1px solid var(--border-light);
+      background: linear-gradient(180deg, #ffffff 0, var(--chrome) 100%);
+      gap: 24px;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .search {
+      display: flex;
+      flex: 0 1 420px;
+      min-width: 220px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .search input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      padding: 6px 8px;
+      font: inherit;
+    }
+
+    .search button {
+      border: 0;
+      border-left: 1px solid var(--border);
+      padding: 6px 10px;
+      background: #f8f9fa;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 24px;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .tab-group {
+      display: flex;
+      gap: 1px;
+    }
+
+    .tab {
+      padding: 8px 10px 6px;
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
+      font-size: 13px;
+    }
+
+    .tab.active {
+      color: var(--text);
+      border-color: var(--border);
+      border-bottom: 1px solid #fff;
+      margin-bottom: -1px;
+      background: #fff;
+    }
+
+    .content {
+      max-width: 1180px;
+      padding: 20px 28px 42px;
+    }
+
+    .page-actions {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--heading);
+      font-size: 32px;
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 292px;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .infobox {
+      border: 1px solid var(--border);
+      background: var(--chrome);
+      font-size: 12px;
+    }
+
+    .infobox-title {
+      padding: 8px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      background: #eaecf0;
+    }
+
+    .infobox-image {
+      margin: 8px;
+      padding: 18px 12px;
+      border: 1px solid var(--border-light);
+      background: #fff;
+      text-align: center;
+    }
+
+    .terminal {
+      display: inline-block;
+      min-width: 180px;
+      padding: 10px;
+      border: 1px solid #222;
+      background: #202122;
+      color: #f8f9fa;
+      font-family: "Consolas", "Liberation Mono", monospace;
+      text-align: left;
+      box-shadow: inset 0 18px 0 #343434;
+    }
+
+    .terminal span {
+      display: block;
+      margin-top: 18px;
+      color: #9fe870;
+    }
+
+    .caption {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .info-row strong,
+    .info-row span {
+      padding: 6px 8px;
+    }
+
+    .info-row strong {
+      background: #eaecf0;
+    }
+
+    .hatnote {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lead {
+      margin-top: 0;
+      font-size: 15px;
+    }
+
+    .toc {
+      display: inline-block;
+      min-width: 240px;
+      margin: 12px 0 18px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      background: var(--chrome);
+      font-size: 13px;
+    }
+
+    .toc h2 {
+      margin: 0 0 6px;
+      border: 0;
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .article h2 {
+      position: relative;
+      clear: left;
+      margin: 22px 0 8px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--heading);
+      font-size: 22px;
+      font-weight: normal;
+    }
+
+    .edit-link {
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      color: var(--muted);
+      font-family: var(--body);
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    .edit-link a {
+      color: var(--link);
+    }
+
+    .warning-box {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 16px 0;
+      padding: 10px 12px;
+      border: 1px solid #fac588;
+      background: #fef6e7;
+      font-size: 13px;
+    }
+
+    .warning-box .icon {
+      flex: 0 0 auto;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .article h3 {
+      margin: 16px 0 4px;
+      font-size: 16px;
+    }
+
+    .notice {
+      margin: 16px 0;
+      padding: 8px 10px;
+      border: 1px solid var(--border-light);
+      border-left: 8px solid #36c;
+      background: #f8f9fa;
+    }
+
+    .wikitable {
+      width: 100%;
+      margin: 12px 0;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .wikitable th,
+    .wikitable td {
+      border: 1px solid var(--border);
+      padding: 7px 8px;
+      vertical-align: top;
+    }
+
+    .wikitable th {
+      background: #eaecf0;
+      text-align: left;
+    }
+
+    .wikitable tbody tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    .page-stats {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: right;
+    }
+
+    .references {
+      columns: 2;
+      column-gap: 32px;
+      font-size: 12px;
+    }
+
+    .references li {
+      break-inside: avoid;
+      margin-bottom: 6px;
+    }
+
+    .categories {
+      margin-top: 24px;
+      padding: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--chrome);
+      font-size: 12px;
+    }
+
+    .footer {
+      padding: 16px 28px 28px;
+      border-top: 1px solid var(--border-light);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media (max-width: 860px) {
+      .site-shell {
+        display: block;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .topbar,
+      .tabs {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 8px;
+      }
+
+      .top-links {
+        flex-wrap: wrap;
+      }
+
+      .search {
+        flex-basis: auto;
+        width: 100%;
+      }
+
+      .tabs {
+        overflow-x: auto;
+      }
+
+      .content {
+        padding: 16px 14px 30px;
+      }
+
+      .article-grid {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .infobox {
+        order: -1;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .references {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar" aria-label="Navigation principale">
+      <div class="brand">
+        <img class="brand-logo" src="logo.png" alt="Wikicrédulité - La vérité, mais sans vérification.">
+      </div>
+
+      <nav class="side-section">
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Portails thematiques</a></li>
+          <li><a href="#">Article au hasard</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav class="side-section">
+        <h2>Contribuer</h2>
+        <ul>
+          <li><a href="#">Debuter sur Wikicrédulité</a></li>
+          <li><a href="#">Aide</a></li>
+          <li><a href="#">Communaute</a></li>
+          <li><a href="#">Modifications recentes</a></li>
+        </ul>
+      </nav>
+
+      <nav class="side-section">
+        <h2>Outils</h2>
+        <ul>
+          <li><a href="#">Pages liees</a></li>
+          <li><a href="#">Suivi des pages liees</a></li>
+          <li><a href="#">Importer un fichier</a></li>
+          <li><a href="#">Informations sur la page</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="top-links">
+          <span>Non connecte</span>
+          <a href="#">Discussion</a>
+          <a href="#">Contributions</a>
+          <a href="#">Creer un compte</a>
+          <a href="#">Se connecter</a>
+        </div>
+        <form class="search" role="search">
+          <input type="search" aria-label="Rechercher" placeholder="Rechercher sur Wikicrédulité">
+          <button type="button">Rechercher</button>
+        </form>
+      </header>
+
+      <nav class="tabs" aria-label="Onglets de page">
+        <div class="tab-group">
+          <a class="tab active" href="#">Article</a>
+          <a class="tab" href="#">Discussion</a>
+        </div>
+        <div class="tab-group">
+          <a class="tab active" href="#">Lire</a>
+          <a class="tab" href="#">Modifier</a>
+          <a class="tab" href="#">Voir l'historique</a>
+        </div>
+      </nav>
+
+      <article class="content">
+        <div class="page-actions">Page semi-protegee · Article humoristique<div class="page-stats">3 217 consultations ce mois-ci</div></div>
+        <h1>Sys Admin</h1>
+        <p class="subtitle">Article issu de Wikicrédulité, l'encyclopedie librement invérifiée.</p>
+
+        <div class="article-grid">
+          <div class="article">
+            <p class="hatnote">Cet article concerne une interpretation alternative du terme. Pour l'usage informatique courant, voir <a href="#">administrateur systeme</a>.</p>
+
+            <div class="warning-box">
+              <span class="icon" aria-hidden="true">⚠️</span>
+              <span>Cet article contient des passages non sourcés ou sourcés de maniere fantaisiste. Vous pouvez ameliorer sa verifiabilite en ajoutant des references a des sources fiables, ou en demandant l'avis du <a href="#" class="new">Comite de vigilance marmottiere</a>.</span>
+            </div>
+
+            <p class="lead"><strong>Sys Admin</strong> est l'abreviation consacree de <strong>Secteur Yéti Serein — Ambassadeur Des Marmottes Impertinentes Nationales</strong><sup class="ref" id="cite_ref-1"><a href="#cite_note-1">[1]</a></sup>. Dans cette acception, le Sys Admin designe une fonction officieuse chargee de maintenir l'equilibre protocolaire entre les environnements calmes, les infrastructures sensibles et les delegations de <a href="#" class="new">marmottes a forte personnalite</a>.</p>
+
+            <p>Le role est generalement associe a une posture de vigilance tranquille, a une excellente tolerance aux incidents absurdes et a la capacite de documenter l'indocumentable sans hausser le ton<sup class="ref" id="cite_ref-2"><a href="#cite_note-2">[2]</a></sup>. Bien que son existence soit rarement mentionnee dans les manuels techniques, plusieurs traditions de bureau attribuent au Sys Admin la preservation du climat serein dans les zones ou les <a href="#" class="new">tickets s'accumulent</a>.</p>
+
+            <div class="toc" aria-label="Sommaire">
+              <h2>Sommaire</h2>
+              <ol>
+                <li><a href="#definition">Definition</a></li>
+                <li><a href="#missions">Missions</a></li>
+                <li><a href="#competences">Competences supposees</a></li>
+                <li><a href="#origines">Origines et etymologie contestee</a></li>
+                <li><a href="#culture">Culture populaire</a></li>
+                <li><a href="#controverses">Controverses</a></li>
+                <li><a href="#references">References</a></li>
+                <li><a href="#voir-aussi">Voir aussi</a></li>
+              </ol>
+            </div>
+
+            <h2 id="definition">Definition<span class="edit-link">[<a href="#">modifier</a> | <a href="#">modifier le code</a>]</span></h2>
+            <p>L'expression <em>Secteur Yéti Serein</em> renvoie a un territoire administratif imaginaire ou les decisions techniques doivent etre prises avec calme, hauteur et une quantite raisonnable de chocolat chaud. La seconde partie, <em>Ambassadeur Des Marmottes Impertinentes Nationales</em>, precise la dimension diplomatique du poste: ecouter les revendications, traduire les grognements en priorites et faire respecter les <a href="#" class="new">fenetres de maintenance</a>.</p>
+
+            <div class="notice">
+              Le terme ne doit pas etre confondu avec un simple gardien de serveurs: dans sa definition etendue, le Sys Admin agit aussi comme mediateur, archiviste, observateur meteorologique approximatif et garant du silence relatif des couloirs<sup class="ref" id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup>.
+            </div>
+
+            <h2 id="missions">Missions<span class="edit-link">[<a href="#">modifier</a> | <a href="#">modifier le code</a>]</span></h2>
+            <p>Les missions attribuees au Sys Admin varient selon les sources, mais incluent souvent la supervision des signaux faibles, l'apaisement des files d'attente et la classification des demandes selon leur degre d'impertinence.</p>
+
+            <table class="wikitable">
+              <thead>
+                <tr>
+                  <th>Domaine</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Serenite operationnelle</td>
+                  <td>Maintenir une ambiance stable meme lorsque plusieurs alarmes clignotent sans raison evidente.</td>
+                </tr>
+                <tr>
+                  <td>Diplomatie marmottiere</td>
+                  <td>Recevoir les dolances, identifier les priorites et repondre avec une fermete courtoise.</td>
+                </tr>
+                <tr>
+                  <td>Cartographie du secteur</td>
+                  <td>Tenir a jour une representation approximative des zones calmes, des zones bruyantes et des zones a eviter le lundi.</td>
+                </tr>
+                <tr>
+                  <td>Documentation</td>
+                  <td>Transformer les incidents inexplicables en procedures lisibles par un humain fatigue.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2 id="competences">Competences supposees<span class="edit-link">[<a href="#">modifier</a> | <a href="#">modifier le code</a>]</span></h2>
+            <h3>Calme applique</h3>
+            <p>Le Sys Admin est repute pour repondre aux crises avec une economie de gestes et une phrase courte, souvent suivie d'une verification des journaux. Cette aptitude constitue le socle du <em>Yeti Serein</em>.</p>
+
+            <h3>Ecoute des signaux</h3>
+            <p>La fonction exige une attention particuliere aux bruits faibles: ventilateur inhabituel, silence suspect, message d'erreur intermittent ou assemblee spontanee de <a href="#" class="new">marmottes pres de la machine a cafe</a>.</p>
+
+            <h3>Neutralite diplomatique</h3>
+            <p>L'ambassadeur conserve une stricte neutralite entre les equipes, les outils et les preferences editoriales des documents internes. Il arbitre uniquement en faveur de ce qui redemarre proprement.</p>
+
+            <h3>Redaction de la documentation indocumentable</h3>
+            <p>Une competence rarement citee mais souvent evoquee en note de bas de page est la capacite a produire, sous pression, une procedure lisible a partir d'un incident qui ne s'est techniquement jamais reproduit deux fois de la meme maniere<sup class="ref" id="cite_ref-4"><a href="#cite_note-4">[4]</a></sup>. Cette documentation est generalement classee dans le <a href="#" class="new">grand classeur des solutions de contournement</a>, consulte uniquement en cas d'urgence.</p>
+
+            <h2 id="origines">Origines et etymologie contestee<span class="edit-link">[<a href="#">modifier</a> | <a href="#">modifier le code</a>]</span></h2>
+            <p>L'origine exacte du terme fait l'objet d'un debat non tranche au sein des cercles specialises. Une premiere hypothese, dite <em>hypothese montagnarde</em>, situe l'apparition de l'expression dans un contexte de maintenance de refuges informatiques en altitude, ou le calme du Yeti Serein aurait ete observe pour la premiere fois face a une panne de generateur<sup class="ref" id="cite_ref-5"><a href="#cite_note-5">[5]</a></sup>. Une seconde hypothese, moins consensuelle, avance que le sigle aurait ete construit a posteriori pour faire correspondre un acronyme existant a une legende deja repandue dans les couloirs.</p>
+
+            <p>Le <a href="#" class="new">Comite national des marmottes impertinentes</a> revendique de son cote une origine plus ancienne, remontant a des pratiques orales de mediation de conflits territoriaux, bien avant l'apparition des premiers tickets d'incident numeriques.</p>
+
+            <h2 id="culture">Culture populaire<span class="edit-link">[<a href="#">modifier</a> | <a href="#">modifier le code</a>]</span></h2>
+            <p>Dans certaines organisations, le Sys Admin apparait comme une figure semi-legendaire. On lui attribue la capacite de retrouver un mot de passe perdu, de calmer une reunion par la seule ouverture d'un terminal et de faire disparaitre une anomalie au moment precis ou quelqu'un tente de la montrer.</p>
+
+            <p>Des representations modernes le depeignent souvent comme un personnage discret, installe pres d'un ecran sombre, entoure de notes, de cables et de demandes contradictoires. Sa devise officieuse serait: <q>On va regarder les logs.</q></p>
+
+            <p>Plusieurs recits internes, transmis oralement d'une equipe a l'autre, evoquent des <a href="#" class="new">apparitions du Sys Admin</a> juste avant qu'un incident critique ne se resolve de lui-meme, sans qu'aucune intervention documentee n'ait ete enregistree. Ce phenomene est parfois designe, avec une pointe d'ironie, sous le nom d'<em>effet marmotte</em><sup class="ref" id="cite_ref-6"><a href="#cite_note-6">[6]</a></sup>.</p>
+
+            <h2 id="controverses">Controverses<span class="edit-link">[<a href="#">modifier</a> | <a href="#">modifier le code</a>]</span></h2>
+            <p>La legitimite meme du terme est contestee par une minorite de commentateurs, qui y voient une simple reinterpretation humoristique d'un poste bien reel et deja suffisamment charge. D'autres estiment au contraire que la fonction diplomatique attribuee au Sys Admin merite une reconnaissance formelle, notamment dans les organisations ou les <a href="#" class="new">delegations de marmottes</a> sont particulierement actives.</p>
+
+            <p>Un debat annexe porte sur l'orthographe du sigle lui-meme, certaines sources preferant la forme non accentuee <em>Secteur Yeti Serein</em>, jugee plus conforme aux conventions de nommage habituelles des systemes.</p>
+
+            <h2 id="references">References<span class="edit-link">[<a href="#">modifier</a> | <a href="#">modifier le code</a>]</span></h2>
+            <ol class="references">
+              <li id="cite_note-1"><a href="#cite_ref-1" class="backlink">^</a> Archives orales du Secteur Yéti Serein, edition revisee, chapitre 404.</li>
+              <li id="cite_note-2"><a href="#cite_ref-2" class="backlink">^</a> Comite national des marmottes impertinentes, <em>Guide de negociation en milieu tempere</em>.</li>
+              <li id="cite_note-3"><a href="#cite_ref-3" class="backlink">^</a> Manuel non officiel des administrateurs calmes, annexe B: diplomatie et redemarrage.</li>
+              <li id="cite_note-4"><a href="#cite_ref-4" class="backlink">^</a> Recueil des procedures orphelines, tome II, section « incidents non reproductibles ».</li>
+              <li id="cite_note-5"><a href="#cite_ref-5" class="backlink">^</a> Chroniques du refuge numerique, chapitre « generateurs et generosite ».</li>
+              <li id="cite_note-6"><a href="#cite_ref-6" class="backlink">^</a> Glossaire informel des phenomenes de bureau, entree « effet marmotte ».</li>
+            </ol>
+
+            <h2 id="voir-aussi">Voir aussi<span class="edit-link">[<a href="#">modifier</a> | <a href="#">modifier le code</a>]</span></h2>
+            <ul class="references">
+              <li><a href="#">Administrateur systeme</a></li>
+              <li><a href="#" class="new">Diplomatie technique</a></li>
+              <li><a href="#" class="new">Liste des metiers imaginaires de bureau</a></li>
+              <li><a href="#" class="new">Effet marmotte</a></li>
+            </ul>
+
+            <div class="categories">
+              Categories: <a href="#">Metiers imaginaires</a> · <a href="#">Administration symbolique</a> · <a href="#">Humour informatique</a> · <a href="#" class="new">Articles a sourcer</a>
+            </div>
+          </div>
+
+          <aside class="infobox" aria-label="Infobox">
+            <div class="infobox-title">Sys Admin</div>
+            <div class="infobox-image">
+              <div class="terminal" aria-hidden="true">
+                admin@secteur:~$
+                <span>calme --maintenir</span>
+              </div>
+              <div class="caption">Representation stylisee d'un poste de supervision serein.</div>
+            </div>
+            <div class="info-row">
+              <strong>Forme longue</strong>
+              <span>Secteur Yéti Serein — Ambassadeur Des Marmottes Impertinentes Nationales</span>
+            </div>
+            <div class="info-row">
+              <strong>Domaine</strong>
+              <span>Diplomatie technique imaginaire</span>
+            </div>
+            <div class="info-row">
+              <strong>Fonction</strong>
+              <span>Maintien du calme, mediation et documentation</span>
+            </div>
+            <div class="info-row">
+              <strong>Outil typique</strong>
+              <span>Terminal, carnet, patience</span>
+            </div>
+            <div class="info-row">
+              <strong>Origine supposee</strong>
+              <span>Hypothese montagnarde, non tranchee</span>
+            </div>
+            <div class="info-row">
+              <strong>Predecesseur</strong>
+              <span><a href="#" class="new">Veilleur de salle serveur</a></span>
+            </div>
+            <div class="info-row">
+              <strong>Statut</strong>
+              <span>Fonction officieuse, non reconnue formellement</span>
+            </div>
+            <div class="info-row">
+              <strong>Devise</strong>
+              <span>On va regarder les logs.</span>
+            </div>
+          </aside>
+        </div>
+      </article>
+
+      <footer class="footer">
+        <p>Le contenu de cette page est disponible sous licence <a href="#">CC BY-SA 4.0</a>, sauf mention contraire. Wikicrédulité® et le logo Wikicrédulité sont des marques deposees fictives de la Fondation Wikicrédulité, une organisation imaginaire a but non lucratif.</p>
+        <p>Derniere modification de cette page fictive le 5 juillet 2026 a 14:42 par <a href="#">Contributeur_404</a> (révision n° 118 — 23 contributeurs, 214 modifications au total).</p>
+        <p>Politique de confidentialite · A propos de Wikicrédulité · Avertissements · Version mobile</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
